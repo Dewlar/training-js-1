@@ -1,0 +1,80 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: aquamarine;
+  
+  input{
+      width: 100px;
+      height: 20px;
+  }
+
+  .form {
+    border-radius: 4px;
+    margin: 30px 30px;
+    height: 200px;
+    width: 400px;
+    // margin: 222px;
+
+    .menu-list {
+      display: flex;
+      list-style: none;
+      height: 40px;
+      align-items: center;
+      border-bottom: 1px rgb(128, 73, 73) solid;
+
+      .menu-list-item {
+        display: flex;
+        flex: 1 1 80px;
+        margin: 0 1px;
+        border: 1px black solid;
+        border-radius: 7px;
+        justify-content: center;
+        align-items: center;
+        background-color: bisque;
+        height: 25px;
+        position: relative; 
+        cursor: pointer;
+
+        .mtab1, 
+        .mtab2,
+        .mtab3,
+        .mtab4,
+        .mtab5{
+          text-decoration: none;
+        }
+
+        .tab-content {
+          display: none;
+          position: absolute;
+          top: 40px;
+          width: 394px;
+          height: 140px;
+          resize: none;
+        }
+
+        .tab1 {
+          left: 0px;
+        }
+        .tab2 {
+          left: -80px;
+        }
+        .tab3 {
+          left: -160px;
+        }
+        .tab4 {
+          left: -240px;
+        }
+        .tab5 {
+          left: -320px;
+        }
+
+        .active {
+          display: block;
+        }
+      }
+    }
+  }
+}
