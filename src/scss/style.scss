@@ -4,19 +4,28 @@
 }
 
 body {
-  background-color: aquamarine;
+  background-color: cadetblue;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   
   input{
       width: 100px;
       height: 20px;
   }
 
+  .box{
+    background-color: lavender;
+    border: 1px black solid;
+    margin: 5px;
+    padding: 20px;
+  }
+
   .form {
     border-radius: 4px;
-    margin: 30px 30px;
+    // margin: 30px 30px;
     height: 200px;
     width: 400px;
-    // margin: 222px;
 
     .menu-list {
       display: flex;
@@ -75,6 +84,37 @@ body {
           display: block;
         }
       }
+    }
+  }
+
+  .calendar-form{
+    width: 450px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    // justify-content: center;
+    background-color: aqua;
+
+    .calendar{
+      flex: 1 1 250px;
+      background-color: white;
+      height: 180px;
+    }
+
+    .prev{
+      // width: 30px;
+      flex: 1 1 30px;
+      height: 20px;
+      background-color: black;
+      color: grey;
+    }
+    .nxt{
+      // width: 30px;
+      flex: 1 1 30px;
+      height: 20px;
+      background-color: black;
+      border: 1px white solid;
+      color: grey;
     }
   }
 }
