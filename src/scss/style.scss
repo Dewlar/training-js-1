@@ -19,13 +19,12 @@ body {
     border: 1px black solid;
     margin: 5px;
     padding: 20px;
+    height: 200px;
+    width: 400px;
   }
 
   .form {
     border-radius: 4px;
-    // margin: 30px 30px;
-    height: 200px;
-    width: 400px;
 
     .menu-list {
       display: flex;
@@ -88,11 +87,10 @@ body {
   }
 
   .calendar-form{
-    width: 450px;
+    width: 400px;
     height: 200px;
     display: flex;
     align-items: center;
-    // justify-content: center;
     background-color: aqua;
 
     .calendar{
@@ -102,19 +100,43 @@ body {
     }
 
     .prev{
-      // width: 30px;
       flex: 1 1 30px;
       height: 20px;
       background-color: black;
       color: grey;
     }
     .nxt{
-      // width: 30px;
       flex: 1 1 30px;
       height: 20px;
       background-color: black;
       border: 1px white solid;
       color: grey;
+    }
+  }
+
+  .search-prime-number{
+    list-style: none;
+
+    li{
+      display: flex;
+      height: 25px;
+      justify-content: space-between;
+    }
+    p{
+      align-self: center;
+    }
+    input[type="text"]{
+      align-self: center;
+    }
+    input[type="button"]{
+      align-self: center;
+    }
+    textarea{
+      padding: 5px;
+      height: 140px;
+      width: 100%;
+      resize: none;
+      margin-top: 5px;
     }
   }
 }
