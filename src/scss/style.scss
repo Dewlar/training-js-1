@@ -8,13 +8,13 @@ body {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  
-  input{
-      width: 100px;
-      height: 20px;
+
+  input {
+    width: 100px;
+    height: 20px;
   }
 
-  .box{
+  .box {
     background-color: lavender;
     border: 1px black solid;
     margin: 5px;
@@ -43,14 +43,14 @@ body {
         align-items: center;
         background-color: bisque;
         height: 25px;
-        position: relative; 
+        position: relative;
         cursor: pointer;
 
-        .mtab1, 
+        .mtab1,
         .mtab2,
         .mtab3,
         .mtab4,
-        .mtab5{
+        .mtab5 {
           text-decoration: none;
         }
 
@@ -86,26 +86,26 @@ body {
     }
   }
 
-  .calendar-form{
+  .calendar-form {
     width: 400px;
     height: 200px;
     display: flex;
     align-items: center;
     background-color: aqua;
 
-    .calendar{
+    .calendar {
       flex: 1 1 250px;
       background-color: white;
       height: 180px;
     }
 
-    .prev{
+    .prev {
       flex: 1 1 30px;
       height: 20px;
       background-color: black;
       color: grey;
     }
-    .nxt{
+    .nxt {
       flex: 1 1 30px;
       height: 20px;
       background-color: black;
@@ -114,29 +114,65 @@ body {
     }
   }
 
-  .search-prime-number{
+  .search-prime-number {
     list-style: none;
 
-    li{
+    li {
       display: flex;
       height: 25px;
       justify-content: space-between;
     }
-    p{
+    p {
       align-self: center;
     }
-    input[type="text"]{
+    input[type="text"] {
       align-self: center;
     }
-    input[type="button"]{
+    input[type="button"] {
       align-self: center;
     }
-    textarea{
+    textarea {
       padding: 5px;
       height: 140px;
       width: 100%;
       resize: none;
       margin-top: 5px;
+    }
+  }
+
+  .test-attributes {
+    display: flex;
+    flex-wrap: wrap;
+
+    h3{
+      flex: 1 1 70px;
+    }
+
+    input[type="button"]{
+      flex: 1 1 170px;
+      margin: 0 0 0 20px;
+    }
+
+    .test-attributes-list {
+      list-style: none;
+
+      a {
+        color: grey;
+      }
+      li {
+        margin-left: 20px;
+        height: 20px;
+      }
+      li:first-child {
+        margin-top: 10px;
+      }      
+      li:last-child {
+        margin-bottom: 10px;
+      }
+    }
+
+    p{
+      font-size: 14px;
     }
   }
 }

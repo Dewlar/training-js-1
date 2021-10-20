@@ -126,3 +126,33 @@ body .search-prime-number textarea {
   resize: none;
   margin-top: 5px;
 }
+body .test-attributes {
+  display: flex;
+  flex-wrap: wrap;
+}
+body .test-attributes h3 {
+  flex: 1 1 70px;
+}
+body .test-attributes input[type=button] {
+  flex: 1 1 170px;
+  margin: 0 0 0 20px;
+}
+body .test-attributes .test-attributes-list {
+  list-style: none;
+}
+body .test-attributes .test-attributes-list a {
+  color: grey;
+}
+body .test-attributes .test-attributes-list li {
+  margin-left: 20px;
+  height: 20px;
+}
+body .test-attributes .test-attributes-list li:first-child {
+  margin-top: 10px;
+}
+body .test-attributes .test-attributes-list li:last-child {
+  margin-bottom: 10px;
+}
+body .test-attributes p {
+  font-size: 14px;
+}
