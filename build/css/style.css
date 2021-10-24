@@ -20,6 +20,7 @@ body .box {
   padding: 20px;
   height: 200px;
   width: 400px;
+  position: relative;
 }
 body .form {
   border-radius: 4px;
@@ -126,6 +127,34 @@ body .search-prime-number textarea {
   resize: none;
   margin-top: 5px;
 }
+body .alert-search-prime-number {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 35%;
+  left: 25%;
+  color: #fff;
+  height: 60px;
+  padding: 10px;
+  border-radius: 15px;
+  width: 220px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+body .alert-search-prime-number p {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 5px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 7px 0px #fff;
+}
+body .alert-search-prime-number input[type=submit] {
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  box-shadow: 0px 0px 7px 0px #fff;
+}
 body .test-attributes {
   display: flex;
   flex-wrap: wrap;
@@ -155,4 +184,22 @@ body .test-attributes .test-attributes-list li:last-child {
 }
 body .test-attributes p {
   font-size: 14px;
+}
+body .add-tree-text {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+body .add-tree-text p {
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-top: -5px;
+  align-self: center;
+}
+body .add-tree-text .wr {
+  display: flex;
+}
+body .add-tree-text .wr ul {
+  font-size: 11px;
+  padding-left: 30px;
 }

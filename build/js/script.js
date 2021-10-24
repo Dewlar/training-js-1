@@ -65,6 +65,10 @@ el.addEventListener("click", () => {
   let textResult = document.querySelector(".text-result");
 
   if (Number(numInput.value) || (Number(numInput.value) == 0 && numInput.value !== "")) {
+    if (document.querySelector(".alert-search-prime-number")) {
+      document.querySelector(".alert-search-prime-number").remove();
+    }
+
     let n = Math.abs(numInput.value);
     n = Math.trunc(n);
     numInput.value = n;
@@ -76,11 +80,26 @@ el.addEventListener("click", () => {
       finderPrimeNumber(n, x);
     }
   } else {
-    alert("введите числовое значение");
+    alrt();
     textResult.value = "";
     numInput.value = "";
   }
 });
+
+function alrt() {
+  if (document.querySelector(".alert-search-prime-number")) {
+    document.querySelector(".alert-search-prime-number").remove();
+  }
+  let div = document.createElement("div");
+  div.className = "alert-search-prime-number";
+  div.innerHTML = '<p>Enter a numeric value!</p><input type="submit" value="ok" class="ok-search-number">';
+  document.querySelector(".prime-number").append(div);
+  /////////////////      ????
+  var el = document.querySelector(".ok-search-number");
+  el.addEventListener("click", () => {
+    document.querySelector(".alert-search-prime-number").remove();
+  });
+}
 
 /////////////// function for finding prime numbers /////////////////
 //takes parameters: a number and an object to output the result
@@ -114,4 +133,73 @@ el.addEventListener("click", () => {
       lnk.firstElementChild.style.color = "#" + Math.random().toString(16).substring(2, 8).toUpperCase();
     }
   }
+});
+
+//////////////  need add text tree ////////////////
+let data = {
+  branch1: {
+    "sub-branch-1": {},
+    "sub-branch-2": {},
+  },
+  branch2: {
+    "sub-a-branch-1": {},
+    "sub-a-branch-2": {},
+    "sub-a-branch-3": {
+      "sub-b-branch-asd": {},
+    },
+    "sub-a-branch-4": {
+      "sub-b-branch-dsa": {
+        "sub-c-branch-1": {},
+        "sub-c-branch-2": {},
+      },
+      "sub-b-branch-xaq": {},
+    },
+  },
+};
+var el = document.querySelector(".add-tree-text1");
+function createTreeText(el, data) {
+  el.append(generateTextTree(data));
+}
+function generateTextTree(data) {
+  if (!Object.keys(data).length) {
+    return;
+  }
+
+  let ul = document.createElement("ul");
+
+  for (let key in data) {
+    let li = document.createElement("li");
+    li.innerHTML = key;
+
+    let liChildren = generateTextTree(data[key]);
+    if (liChildren) {
+      li.append(liChildren);
+    }
+    ul.append(li);
+  }
+  return ul;
+}
+
+createTreeText(el, data);
+
+var el = document.querySelector(".add-tree-text");
+el.addEventListener("click", () => {
+  // alert('!!!!')
+  let ul = document.querySelector(".add-tree-text2").firstElementChild;
+  let li = ul.querySelectorAll('li');
+  // alert(li)
+  console.log(li.firstChild.data);
+  for (let i; i<li.length;i++) {
+    // console.log(l.length);
+    // let liCounter = l.length;
+    // if (!liCounter) continue;
+    console.log( li[i].firstChild.data)
+    // l.firstchild.data+='['+liCounter+']';
+    // console.log(l.length);
+  }
+/* li.forEach(   function(l,i,li){
+  let liCounter = l.querySelectorAll.length;
+    if (!liCounter) continue;
+    l.firstChild.data+='['+liCounter+']';
+}    ) */
 });
