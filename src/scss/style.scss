@@ -86,8 +86,99 @@ body {
       }
     }
   }
+  .calendar-page {
+    display: flex;
+    // justify-content: center;
+    justify-content: stretch;
+    align-items: center;
+    background-color: cadetblue;
 
-  .calendar-form {
+    .calendar-form {
+      flex: 0 0 280px;
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+      // align-items: stretch;
+      align-items: center;
+      justify-content: center;
+      background-color: #ffbbcc;
+
+      .calendar-year {
+        //////////////////////        год
+        // background-color: aqua;
+        font-weight: bold;
+        font-size: 16px;
+        margin: 5px 0;
+        // height: 40px;
+        // width: 120px;
+      }
+
+      .calendar-month {
+        /////////////                месяц
+        // background-color: burlywood;
+        font-weight: bold;
+        font-size: 16px;
+        margin: 5px 0;
+        // height: 40px;
+        // width: 120px;
+      }
+
+      .calendar-wrap {
+        ///////////////            календарь с переключателями
+        display: flex;
+        align-items: center;
+        position: relative;
+        // height: 150px;
+        // height: 100%;
+        // width: 277px;
+        // width: 100%;
+
+        // background-color: grey;
+
+        .calendar {
+          // flex: 0 0 130px;
+          // background-color: white;
+          // height: 150px;
+          // height: 100%;
+          // z-index: 11;
+
+          table {
+            margin: 0 10px;
+            tr {
+              td {
+                width: 23px;
+                font-size: 14px;
+              }
+            }
+          }
+        }
+
+        .prev {
+          // flex: 0 0 90px;
+          // width: 90px;
+          // height: 90px;
+          // background-color: black;
+          border: 50px solid transparent;
+          border-right: 40px solid #000;
+          color: grey;
+          cursor: pointer;
+          margin-left: -20px;
+        }
+        .nxt {
+          // flex: 0 0 90px;
+          // height: 90px;
+          // background-color: #000;
+          border: 50px solid transparent;
+          border-left: 40px solid #000;
+          color: grey;
+          cursor: pointer;
+          margin-right: -20px;
+        }
+      }
+    }
+  }
+  
+  /* .calendar-form {
     width: 400px;
     height: 200px;
     display: flex;
@@ -113,7 +204,7 @@ body {
       border: 1px white solid;
       color: grey;
     }
-  }
+  } */
 
   .search-prime-number {
     list-style: none;
@@ -215,9 +306,12 @@ body {
 
     p {
       text-transform: uppercase;
+      font-size: 11px;
       font-weight: bold;
-      margin-top: -5px;
+      margin-top: -10px;
       align-self: center;
+      color: blue;
+      text-shadow: 0 0 1px red, 0 0 1em blue;
     }
 
     .wr {

@@ -8,6 +8,33 @@ body {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  /* .calendar-form {
+    width: 400px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    background-color: aqua;
+
+    .calendar {
+      flex: 1 1 250px;
+      background-color: white;
+      height: 180px;
+    }
+
+    .prev {
+      flex: 1 1 30px;
+      height: 20px;
+      background-color: black;
+      color: grey;
+    }
+    .nxt {
+      flex: 1 1 30px;
+      height: 20px;
+      background-color: black;
+      border: 1px white solid;
+      color: grey;
+    }
+  } */
 }
 body input {
   width: 100px;
@@ -78,30 +105,56 @@ body .form .menu-list .menu-list-item .tab5 {
 body .form .menu-list .menu-list-item .active {
   display: block;
 }
-body .calendar-form {
-  width: 400px;
+body .calendar-page {
+  display: flex;
+  justify-content: stretch;
+  align-items: center;
+  background-color: cadetblue;
+}
+body .calendar-page .calendar-form {
+  flex: 0 0 280px;
   height: 200px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  background-color: aqua;
+  justify-content: center;
+  background-color: #ffbbcc;
 }
-body .calendar-form .calendar {
-  flex: 1 1 250px;
-  background-color: white;
-  height: 180px;
+body .calendar-page .calendar-form .calendar-year {
+  font-weight: bold;
+  font-size: 16px;
+  margin: 5px 0;
 }
-body .calendar-form .prev {
-  flex: 1 1 30px;
-  height: 20px;
-  background-color: black;
+body .calendar-page .calendar-form .calendar-month {
+  font-weight: bold;
+  font-size: 16px;
+  margin: 5px 0;
+}
+body .calendar-page .calendar-form .calendar-wrap {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+body .calendar-page .calendar-form .calendar-wrap .calendar table {
+  margin: 0 10px;
+}
+body .calendar-page .calendar-form .calendar-wrap .calendar table tr td {
+  width: 23px;
+  font-size: 14px;
+}
+body .calendar-page .calendar-form .calendar-wrap .prev {
+  border: 50px solid transparent;
+  border-right: 40px solid #000;
   color: grey;
+  cursor: pointer;
+  margin-left: -20px;
 }
-body .calendar-form .nxt {
-  flex: 1 1 30px;
-  height: 20px;
-  background-color: black;
-  border: 1px white solid;
+body .calendar-page .calendar-form .calendar-wrap .nxt {
+  border: 50px solid transparent;
+  border-left: 40px solid #000;
   color: grey;
+  cursor: pointer;
+  margin-right: -20px;
 }
 body .search-prime-number {
   list-style: none;
@@ -192,9 +245,12 @@ body .add-tree-text {
 }
 body .add-tree-text p {
   text-transform: uppercase;
+  font-size: 11px;
   font-weight: bold;
-  margin-top: -5px;
+  margin-top: -10px;
   align-self: center;
+  color: blue;
+  text-shadow: 0 0 1px red, 0 0 1em blue;
 }
 body .add-tree-text .wr {
   display: flex;

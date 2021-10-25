@@ -135,7 +135,7 @@ el.addEventListener("click", () => {
   }
 });
 
-//////////////  need add text tree ////////////////
+//////////////  need: add text tree ////////////////
 let data = {
   branch1: {
     "sub-branch-1": {},
@@ -181,25 +181,26 @@ function generateTextTree(data) {
 }
 
 createTreeText(el, data);
-
+///////////////////   counts the number of nested list items and writes 1 item to the end of the line    /////////////////////
 var el = document.querySelector(".add-tree-text");
 el.addEventListener("click", () => {
-  // alert('!!!!')
   let ul = document.querySelector(".add-tree-text2").firstElementChild;
-  let li = ul.querySelectorAll('li');
-  // alert(li)
-  console.log(li.firstChild.data);
-  for (let i; i<li.length;i++) {
-    // console.log(l.length);
-    // let liCounter = l.length;
-    // if (!liCounter) continue;
-    console.log( li[i].firstChild.data)
-    // l.firstchild.data+='['+liCounter+']';
-    // console.log(l.length);
+  let liAll = ul.querySelectorAll("li");
+  for (let i = 0; i < liAll.length; i++) {
+    let li = liAll[i].querySelectorAll("li");
+    if (!li.length) continue;
+    // liAll[i].firstChild.textContent += "[" + li.length + "]";//appends result to the end of the content of the li element
+
+    let span = document.createElement("span");
+    //alternative: creates an <apan> element with styles and inserts it at the end of the content of the Li element
+    span.style.fontWeight = "bold";
+    span.style.color = "red";
+    span.className = "redSpan";
+    span.innerHTML = "<span>[" + li.length + "]</span>";
+    if (!liAll[i].querySelector(".redSpan")) {
+      liAll[i].firstChild.after(span);
+    }else{
+      liAll[i].querySelector(".redSpan").remove();
+    }
   }
-/* li.forEach(   function(l,i,li){
-  let liCounter = l.querySelectorAll.length;
-    if (!liCounter) continue;
-    l.firstChild.data+='['+liCounter+']';
-}    ) */
 });
