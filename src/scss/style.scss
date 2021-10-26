@@ -88,60 +88,40 @@ body {
   }
   .calendar-page {
     display: flex;
-    // justify-content: center;
     justify-content: stretch;
     align-items: center;
-    background-color: cadetblue;
 
     .calendar-form {
       flex: 0 0 280px;
       height: 200px;
       display: flex;
       flex-direction: column;
-      // align-items: stretch;
       align-items: center;
       justify-content: center;
       background-color: #ffbbcc;
+      margin: 0 20px 0 0;
 
       .calendar-year {
-        //////////////////////        год
-        // background-color: aqua;
+        //////////////////////        year
         font-weight: bold;
         font-size: 16px;
         margin: 5px 0;
-        // height: 40px;
-        // width: 120px;
       }
 
       .calendar-month {
-        /////////////                месяц
-        // background-color: burlywood;
+        /////////////                month
         font-weight: bold;
         font-size: 16px;
         margin: 5px 0;
-        // height: 40px;
-        // width: 120px;
       }
 
       .calendar-wrap {
-        ///////////////            календарь с переключателями
+        ///////////////            calendar with buttons
         display: flex;
         align-items: center;
         position: relative;
-        // height: 150px;
-        // height: 100%;
-        // width: 277px;
-        // width: 100%;
-
-        // background-color: grey;
 
         .calendar {
-          // flex: 0 0 130px;
-          // background-color: white;
-          // height: 150px;
-          // height: 100%;
-          // z-index: 11;
-
           table {
             margin: 0 10px;
             tr {
@@ -150,61 +130,55 @@ body {
                 font-size: 14px;
               }
             }
+
+            .redCol {
+              color: red;
+            }
           }
         }
 
         .prev {
-          // flex: 0 0 90px;
-          // width: 90px;
-          // height: 90px;
-          // background-color: black;
           border: 50px solid transparent;
           border-right: 40px solid #000;
-          color: grey;
           cursor: pointer;
           margin-left: -20px;
         }
         .nxt {
-          // flex: 0 0 90px;
-          // height: 90px;
-          // background-color: #000;
           border: 50px solid transparent;
           border-left: 40px solid #000;
-          color: grey;
           cursor: pointer;
           margin-right: -20px;
         }
       }
     }
+
+    .calendar-clock {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      height: 200px;
+
+      .calendar-desc {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 18px;
+        font-weight: bold;
+        color: orange;
+        text-shadow: 0 0 2px red, 2px 1px 4px black;
+      }
+
+      .clock {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 8px;
+        border-radius: 10px;
+        border: 1px dotted black;
+      }
+    }
   }
-  
-  /* .calendar-form {
-    width: 400px;
-    height: 200px;
-    display: flex;
-    align-items: center;
-    background-color: aqua;
-
-    .calendar {
-      flex: 1 1 250px;
-      background-color: white;
-      height: 180px;
-    }
-
-    .prev {
-      flex: 1 1 30px;
-      height: 20px;
-      background-color: black;
-      color: grey;
-    }
-    .nxt {
-      flex: 1 1 30px;
-      height: 20px;
-      background-color: black;
-      border: 1px white solid;
-      color: grey;
-    }
-  } */
 
   .search-prime-number {
     list-style: none;

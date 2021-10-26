@@ -33,7 +33,7 @@ el.addEventListener("click", () => {
 //task2: prime numbers n=30 And add the result to the 5th tab
 finderPrimeNumber(30, document.querySelector("#tab5"));
 
-//////////////////////// add result in console and to the 5th tab ////////////////////////
+//////////////////////// alternative -> add result in console and to the 5th tab ////////////////////////
 /* let n = 30;
 let sn = true;
 console.log("простые числа:");
@@ -126,11 +126,11 @@ function finderPrimeNumber(num, el) {
 //////////// box with test attributes ////////////
 var el = document.querySelector(".button-color-links");
 el.addEventListener("click", () => {
-  // let randColor = "#" + Math.random().toString(16).substring(2, 8).toUpperCase();
+  let randColor = "#" + Math.random().toString(16).substring(2, 8).toUpperCase();
   for (let lnk of document.querySelector(".test-attributes-list").children) {
     let href = lnk.firstElementChild.getAttribute("href");
     if (href.includes("://") && !href.includes("http://internal.com")) {
-      lnk.firstElementChild.style.color = "#" + Math.random().toString(16).substring(2, 8).toUpperCase();
+      lnk.firstElementChild.style.color = randColor;
     }
   }
 });
@@ -181,6 +181,7 @@ function generateTextTree(data) {
 }
 
 createTreeText(el, data);
+
 ///////////////////   counts the number of nested list items and writes 1 item to the end of the line    /////////////////////
 var el = document.querySelector(".add-tree-text");
 el.addEventListener("click", () => {
@@ -189,18 +190,96 @@ el.addEventListener("click", () => {
   for (let i = 0; i < liAll.length; i++) {
     let li = liAll[i].querySelectorAll("li");
     if (!li.length) continue;
-    // liAll[i].firstChild.textContent += "[" + li.length + "]";//appends result to the end of the content of the li element
+    //   !!! liAll[i].firstChild.textContent += "[" + li.length + "]";//appends result to the end of the content of the li element
 
     let span = document.createElement("span");
-    //alternative: creates an <apan> element with styles and inserts it at the end of the content of the Li element
+    //   !!! alternative: creates an <apan> element with styles and inserts it at the end of the content of the Li element
     span.style.fontWeight = "bold";
     span.style.color = "red";
     span.className = "redSpan";
     span.innerHTML = "<span>[" + li.length + "]</span>";
     if (!liAll[i].querySelector(".redSpan")) {
       liAll[i].firstChild.after(span);
-    }else{
+    } else {
       liAll[i].querySelector(".redSpan").remove();
     }
   }
 });
+
+////////////////////////    calendar   - html  ////////////
+
+let date = new Date();
+const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+let m = date.getMonth();
+let y = date.getFullYear();
+calendarHtml(m, y);
+
+function calendarHtml(m, y) {
+  let yearObj = document.querySelector(".calendar-year");
+  let monthObj = document.querySelector(".calendar-month");
+  yearObj.textContent = y;
+  monthObj.textContent = monthNames[m];
+
+  let dayListObj = document.querySelector(".calendar").querySelectorAll("td");
+  let locDate = new Date(y, m, 1);
+  let num = locDate.getDay();
+  let d = locDate.getDate() - num + 1;
+  for (let i = 0; i < 35; i++) {
+    locDate.setMonth(m, d++);
+    dayListObj[i].textContent = locDate.getDate();
+    dayListObj[i].style.color = "black";
+
+    if (m != locDate.getMonth()) {
+      dayListObj[i].style.color = "blue";
+      // console.log(locDate.getDay());
+      /// проверить январь 2021 - getDay() - работает не правильно /////////////////
+      /// январь 2021, январь 2020, январь 2019 и январь 2016
+    }
+    if(locDate.getDay()===0 || locDate.getDay()===6){
+      dayListObj[i].style.color = "red";
+    }
+  }
+}
+
+var el = document.querySelector(".prev");
+el.addEventListener("click", () => {
+  //   previous month in html calendar
+  m -= 1;
+  if (m < 0) {
+    m = 11;
+    y -= 1;
+  }
+  calendarHtml(m, y);
+});
+var el = document.querySelector(".nxt");
+el.addEventListener("click", () => {
+  //   next month in html calendar
+  m += 1;
+  if (m + 1 > 12) {
+    m = 0;
+    y += 1;
+  }
+  calendarHtml(m, y);
+});
+/////////////////////     calendar - clock  ///////////////
+function clockUpdate() {
+  let date = new Date();
+
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
+  let seconds = date.getSeconds();
+  if (hours < 10) document.querySelector(".hours").textContent = "0" + hours;
+  else document.querySelector(".hours").textContent = hours;
+
+  if (minutes < 10) document.querySelector(".minutes").textContent = "0" + minutes;
+  else document.querySelector(".minutes").textContent = minutes;
+
+  if (seconds < 10) document.querySelector(".seconds").textContent = "0" + seconds;
+  else document.querySelector(".seconds").textContent = seconds;
+
+  /*   let randColor = Math.floor(Math.random()*255);// poor generation method, only creates dark colors 
+  document.querySelector(".seconds").style.color='rgb('+randColor+','+randColor+','+ randColor+')'; */
+  document.querySelector(".seconds").style.color = "#" + Math.random().toString(16).substring(2, 8).toUpperCase();
+}
+
+let timerId = setInterval(clockUpdate, 1000); // не понял почему здесь функция вызывается без ()
