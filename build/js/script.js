@@ -224,6 +224,7 @@ function calendarHtml(m, y) {
   let locDate = new Date(y, m, 1);
   let num = locDate.getDay();
   let d = locDate.getDate() - num + 1;
+  let z=6;
   for (let i = 0; i < 35; i++) {
     locDate.setMonth(m, d++);
     dayListObj[i].textContent = locDate.getDate();
@@ -231,12 +232,17 @@ function calendarHtml(m, y) {
 
     if (m != locDate.getMonth()) {
       dayListObj[i].style.color = "blue";
+    }
+     /*if(locDate.getDay()===0 || locDate.getDay()===6){
+      dayListObj[i].style.color = "red";
       // console.log(locDate.getDay());
       /// проверить январь 2021 - getDay() - работает не правильно /////////////////
       /// январь 2021, январь 2020, январь 2019 и январь 2016
-    }
-    if(locDate.getDay()===0 || locDate.getDay()===6){
+    } */
+    if(i==z){
       dayListObj[i].style.color = "red";
+      dayListObj[i-1].style.color = "red";
+      z+=7;
     }
   }
 }
@@ -277,7 +283,7 @@ function clockUpdate() {
   if (seconds < 10) document.querySelector(".seconds").textContent = "0" + seconds;
   else document.querySelector(".seconds").textContent = seconds;
 
-  /*   let randColor = Math.floor(Math.random()*255);// poor generation method, only creates dark colors 
+  /*   let randColor = Math.floor(Math.random()*255);//         poor generation method, only creates dark colors 
   document.querySelector(".seconds").style.color='rgb('+randColor+','+randColor+','+ randColor+')'; */
   document.querySelector(".seconds").style.color = "#" + Math.random().toString(16).substring(2, 8).toUpperCase();
 }
