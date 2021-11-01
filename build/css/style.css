@@ -115,6 +115,11 @@ body .calendar-page .calendar-form .calendar-wrap .calendar table tr td {
   width: 23px;
   font-size: 14px;
 }
+body .calendar-page .calendar-form .calendar-wrap .calendar table tr td:hover {
+  box-shadow: 0 0 11px 2px white;
+  background-color: lightgray;
+  cursor: pointer;
+}
 body .calendar-page .calendar-form .calendar-wrap .calendar table .redCol {
   color: red;
 }

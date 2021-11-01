@@ -129,6 +129,11 @@ body {
                 width: 23px;
                 font-size: 14px;
               }
+              td:hover{
+                box-shadow: 0 0 11px 2px white;
+                background-color: lightgray;
+                cursor: pointer;
+              }
             }
 
             .redCol {
